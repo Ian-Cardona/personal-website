@@ -3,11 +3,11 @@
 import { usePathname } from 'next/navigation';
 import NavLink from './NavLink';
 
-const  Navbar = () => {
+export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="p-4 w-full flex gap-6">
+    <nav className="p-4 w-full flex justify-center gap-6">
       <NavLink href="/" isActive={pathname === '/'}>
         /Home
       </NavLink>
@@ -17,5 +17,3 @@ const  Navbar = () => {
     </nav>
   );
 }
-
-export default Navbar;

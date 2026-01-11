@@ -3,12 +3,11 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function NavLink({ href, children, isActive }: { href: string; children: string; isActive: boolean }) {
+export default function HoverLink({ href, children }: { href: string; children: string }) {
   return (
     <motion.div
       className="relative inline-block w-fit"
-      initial={isActive ? "hover" : "initial"}
-      animate={isActive ? "hover" : "initial"}
+      initial="initial"
       whileHover="hover"
     >
       <Link href={href} className="relative inline-block">
@@ -25,7 +24,7 @@ export default function NavLink({ href, children, isActive }: { href: string; ch
         </motion.span>
       </Link>
       <motion.span
-        className="absolute inset-0 bg-black dark:bg-white -z-10"
+        className="absolute top-0 left-0 right-0 bottom-0 bg-black dark:bg-white z-0"
         variants={{
           initial: { scaleX: 0 },
           hover: { scaleX: 1 }
