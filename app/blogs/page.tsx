@@ -1,9 +1,7 @@
-const Blogs = () => {
+export default function Blogs() {
     return (
         <div className="h-full w-full">
-            <p>Hello, World!</p>
+            <p>Ian Cardona</p>
         </div>
     );
 };
-
-export default Blogs;
