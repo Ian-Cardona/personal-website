@@ -3,10 +3,11 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function NavLink({ href, children, isActive }: { href: string; children: string; isActive: boolean }) {
+export default function NavLinkTextButton({ href, children, isActive }: { href: string; children: string; isActive: boolean }) {
   return (
     <motion.div
-      className="relative inline-block w-fit"
+      className="relative inline-block w-fit text-lg"
+      style={{ fontFamily: 'var(--font-nunito-sans)' }}
       initial={isActive ? "hover" : "initial"}
       animate={isActive ? "hover" : "initial"}
       whileHover="hover"
@@ -21,11 +22,11 @@ export default function NavLink({ href, children, isActive }: { href: string; ch
           }}
           transition={{ duration: 0.3 }}
         >
-          <span className="whitespace-nowrap">{children}</span>
+          <span className="whitespace-nowrap dark:text-red-600">{children}</span>
         </motion.span>
       </Link>
       <motion.span
-        className="absolute inset-0 bg-black dark:bg-white -z-10"
+        className="absolute inset-0 bg-red-600 dark:bg-white -z-10"
         variants={{
           initial: { scaleX: 0 },
           hover: { scaleX: 1 }

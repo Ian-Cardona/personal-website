@@ -1,19 +1,19 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import NavLink from './NavLink';
+import NavLinkTextButton from './NavLinkTextButton';
 
-export default function Navbar() {
+export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="p-4 w-full flex justify-center gap-6">
-      <NavLink href="/" isActive={pathname === '/'}>
+    <nav className="p-8 w-full flex justify-center gap-6">
+      <NavLinkTextButton href="/" isActive={pathname === '/'}>
         /Home
-      </NavLink>
-      <NavLink href="/blog" isActive={pathname === '/blog'}>
+      </NavLinkTextButton>
+      <NavLinkTextButton href="/blog" isActive={pathname === '/blog'}>
         /Blog
-      </NavLink>
+      </NavLinkTextButton>
     </nav>
   );
 }
