@@ -16,12 +16,12 @@ const blogPosts = [
 export default function Blog() {
   return (
     <div className="flex min-h-screen flex-col items-center bg-white dark:bg-black">
-      <main className="flex flex-1 w-full max-w-2xl flex-col px-6 py-32 md:px-0">
+      <main className="flex flex-1 w-full max-w-2xl flex-col px-6 pt-16 md:px-0">
         <h1 className="text-2xl font-bold mb-12" style={{ fontFamily: 'var(--font-nunito-sans)' }}>
           Blog
         </h1>
         
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col">
           {blogPosts.map((post) => (
             <BlogPostItem
               key={post.slug}

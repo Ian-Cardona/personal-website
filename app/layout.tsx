@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/navigation/NavBar";
-import { Nunito_Sans, Merriweather } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-nunito-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const merriweather = Merriweather({
-  variable: "--font-merriweather",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -28,8 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.variable} ${merriweather.variable} antialiased`}
-        style={{ fontFamily: 'var(--font-merriweather)' }}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        style={{ fontFamily: 'var(--font-inter)' }}
       >
         <NavBar />
         {children}
