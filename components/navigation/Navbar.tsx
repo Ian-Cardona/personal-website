@@ -7,7 +7,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className="p-8 w-full flex justify-center gap-6">
+    <nav className="flex w-full justify-center gap-6 p-8">
       <NavLinkTextButton href="/" isActive={pathname === '/'}>
         /Home
       </NavLinkTextButton>
