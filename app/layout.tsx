@@ -1,24 +1,29 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import NavBar from "@/components/navigation/NavBar";
-import { Inter, JetBrains_Mono } from "next/font/google";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
+import type { Metadata } from 'next';
+import './globals.css';
+import { DM_Sans, Google_Sans_Code, Google_Sans_Flex } from 'next/font/google';
 
 export const metadata: Metadata = {
-  title: "Aim Digital City",
-  description: "Just a blog",
+  title: 'Aim Digital City',
+  description: 'Just a blog',
 };
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-dm-sans',
+});
+
+const googleSansFlex = Google_Sans_Flex({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-google-sans-flex',
+});
+
+const googleSansCode = Google_Sans_Code({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-google-sans-code',
+});
 
 export default function RootLayout({
   children,
@@ -28,10 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
-        style={{ fontFamily: 'var(--font-inter)' }}
+        className={`${dmSans.variable} ${googleSansFlex.variable} ${googleSansCode.variable} antialiased`}
+        style={{ fontFamily: 'var(--font-google-sans-flex)' }}
       >
-        <NavBar />
         {children}
       </body>
     </html>

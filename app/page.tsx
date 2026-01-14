@@ -1,25 +1,57 @@
-import Header from "@/components/home/Header";
-import HomeLinkTextButton from "@/components/home/HomeLinkTextButton";
+import BlogLinkButton from '@/components/home/BlogLinkButton';
+import WorkLinkButton from '@/components/home/WorkLinkButton';
+import Header from '@/components/home/Header';
 
 export default function Home() {
+  const works = [
+    { href: 'https://devdashboard.framer.website/', title: 'DevDashboard', date: '2024' },
+  ];
+
+  const posts = [
+    { href: '/blog/post-1', title: 'Getting Started with Next.js 15', date: '01.10.2026' },
+    { href: '/blog/post-2', title: 'Building Scalable APIs', date: '01.05.2026' },
+    { href: '/blog/post-3', title: 'Cloud Architecture Patterns', date: '12.28.2025' },
+  ];
+
+  const workCount = works.length;
+  const postCount = posts.length;
+
   return (
-    <div className="flex min-h-screen flex-col bg-white dark:bg-black">
+    <div className="mx-8 min-h-screen bg-white text-black dark:bg-black dark:text-white">
       <Header />
-      
-      <main className="flex flex-1 w-full max-w-7xl mx-auto flex-col px-6 py-16">
-        <div className="flex w-full flex-col items-start">
-          <div className="flex flex-col items-start gap-2">
-            <HomeLinkTextButton href="https://devdashboard.framer.website/">Visit DevDashboard</HomeLinkTextButton>
-            <HomeLinkTextButton href="/blog">Visit my Blog</HomeLinkTextButton>
+      <main className="mx-auto max-w-7xl px-6 py-4">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <section>
+              <h2 className="mb-4 text-5xl font-medium tracking-tighter">
+                Works
+                <sup className="align-top text-lg tracking-normal">({workCount})</sup>
+              </h2>
+              <div className="flex flex-col">
+                {works.map((work, index) => (
+                  <WorkLinkButton
+                    key={index}
+                    href={work.href}
+                    title={work.title}
+                    date={work.date}
+                  />
+                ))}
+              </div>
+            </section>
+          </div>
+          <div className="lg:col-span-8">
+            <h2 className="mb-4 text-5xl font-medium tracking-tighter">
+              Blogs
+              <sup className="align-top text-lg tracking-normal">({postCount})</sup>
+            </h2>
+            <div className="flex flex-col">
+              {posts.map((post, index) => (
+                <BlogLinkButton key={index} href={post.href} title={post.title} date={post.date} />
+              ))}
+            </div>
           </div>
         </div>
       </main>
-
-      <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-sm text-zinc-500 dark:text-zinc-600">
-          © 2026 Ian Cardona
-        </div>
-      </footer>
     </div>
   );
 }
