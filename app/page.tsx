@@ -1,6 +1,7 @@
 import BlogLinkButton from '@/components/home/BlogLinkButton';
 import WorkLinkButton from '@/components/home/WorkLinkButton';
 import Header from '@/components/home/Header';
+import Footer from '@/components/home/Footer';
 
 export default function Home() {
   const works = [
@@ -11,6 +12,7 @@ export default function Home() {
     { href: '/blog/post-1', title: 'Getting Started with Next.js 15', date: '01.10.2026' },
     { href: '/blog/post-2', title: 'Building Scalable APIs', date: '01.05.2026' },
     { href: '/blog/post-3', title: 'Cloud Architecture Patterns', date: '12.28.2025' },
+    
   ];
 
   const workCount = works.length;
@@ -52,6 +54,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
