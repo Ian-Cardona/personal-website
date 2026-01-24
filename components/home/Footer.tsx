@@ -1,76 +1,34 @@
 import React from 'react';
 
-// 1. Data configuration for easier updates
-const SOCIAL_LINKS = [
-  { href: 'https://github.com/Ian-Cardona', label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/swe-ian-cardona/', label: 'LinkedIn' },
-  { href: 'https://www.credly.com/users/angelo-ian-michael-cardona.a988e18b', label: 'Cracked\'ly' },
-];
-
-interface FooterLinkProps {
-  href: string;
-  children: React.ReactNode;
-}
-
-function FooterLink({ href, children }: FooterLinkProps) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-sm font-medium text-neutral-500 hover:text-blue-600 dark:text-neutral-400 dark:hover:text-blue-400 transition-colors"
-    >
-      {children}
-    </a>
-  );
-}
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-black dark:border-white mt-12">
-      <div className="mx-auto max-w-7xl px-6 py-8">
-        {/* 2. Grid System Update:
-           Changed to lg:grid-cols-12 to match the parent 'Home' layout.
-           Left: col-span-4 (Matches 'Works')
-           Right: col-span-8 (Matches 'Blogs')
-        */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+    <footer className="w-full border-t border-black dark:border-white mt-20">
+      <div className="mx-auto max-w-7xl px-6 py-12">
+        <div className="grid grid-cols-2 gap-12 lg:grid-cols-12">
           
-          {/* Copyright Section (Aligned with 'Works') */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              © {currentYear} Ian Cardona.
-              <br />
-              All rights reserved.
+          <div className="col-span-2 lg:col-span-6">
+            <h3 className="text-xl font-medium tracking-tighter mb-4">Ian Cardona</h3>
+            <p className="text-sm max-w-xs text-neutral-600 dark:text-neutral-400">
+              Software engineer specializing in modern web ecosystems and cloud architecture.
             </p>
           </div>
 
-          {/* Contact & Links Section (Aligned with 'Blogs') */}
-          <div className="lg:col-span-8">
-            <div className="flex flex-col items-start lg:items-end gap-6">
-              
-              {/* Email Button */}
-              <a 
-                href="mailto:iancardona.dev@gmail.com"
-                className="text-2xl font-medium tracking-tight hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
-              >
-                iancardona.dev@gmail.com
-              </a>
+          <div className="lg:col-span-3">
+            <h4 className="text-xs uppercase tracking-widest font-semibold mb-4 opacity-50">Social</h4>
+            <div className="flex flex-col gap-2 text-sm">
+              <a href="https://github.com/Ian-Cardona" target="_blank" className="hover:underline">GitHub</a>
+              <a href="https://www.linkedin.com/in/swe-ian-cardona/" target="_blank" className="hover:underline">LinkedIn</a>
+              <a href="https://www.credly.com/users/angelo-ian-michael-cardona.a988e18b" target="_blank" className="hover:underline">Cracked'ly</a>
+            </div>
+          </div>
 
-              {/* Separator Line (Responsive) */}
-              <div className="h-px w-full bg-black/10 dark:bg-white/20" />
-
-              {/* Social Links */}
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {SOCIAL_LINKS.map((link) => (
-                  <FooterLink key={link.label} href={link.href}>
-                    {link.label}
-                  </FooterLink>
-                ))}
-              </div>
-
+          <div className="lg:col-span-3">
+            <h4 className="text-xs uppercase tracking-widest font-semibold mb-4 opacity-50">Contact</h4>
+            <div className="flex flex-col gap-2 text-sm">
+              <a href="mailto:iancardona.dev@gmail.com" className="hover:underline">Email</a>
+              <span className="text-neutral-500">© {currentYear}</span>
             </div>
           </div>
 
